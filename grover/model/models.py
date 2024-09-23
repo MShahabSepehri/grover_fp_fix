@@ -31,6 +31,8 @@ class GROVEREmbedding(nn.Module):
         if not hasattr(args, "backbone"):
             print("No backbone specified in args, use gtrans backbone.")
             args.backbone = "gtrans"
+        if not hasattr(args, "dropout"):
+                args.dropout = 0
         if args.backbone == "gtrans" or args.backbone == "dualtrans":
             # dualtrans is the old name.
             self.encoders = GTransEncoder(args,
